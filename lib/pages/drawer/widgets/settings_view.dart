@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class SettingsView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    throw UnimplementedError();
+    return SettingsViewState();
   }
 }
 
