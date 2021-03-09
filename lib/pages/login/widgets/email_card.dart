@@ -5,8 +5,10 @@ enum EmailCardStatus { login, reset }
 
 class EmailCard extends StatefulWidget {
   final void Function(String email, String password) onLoginPressed;
+  final void Function(String email) onResetPressed;
 
-  const EmailCard({Key key, this.onLoginPressed}) : super(key: key);
+  const EmailCard({Key key, this.onLoginPressed, this.onResetPressed})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _EmailCardState();
@@ -14,6 +16,7 @@ class EmailCard extends StatefulWidget {
 
 class _EmailCardState extends State<EmailCard> {
   var _status = EmailCardStatus.login;
+
   EmailCardStatus get status => _status;
   //getter in dart
   set status(value) {
@@ -112,11 +115,18 @@ class _EmailCardState extends State<EmailCard> {
               ),
               Divider(),
               TextFormField(
-                key: Key('email'),
+                key: _emailKey,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   icon: Icon(Icons.email_outlined),
                 ),
+                validator: (value) {
+                  bool emailValid = RegExp(
+                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|Ư~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                      .hasMatch(value ?? '');
+                  if (!emailValid) return 'Email không hợp lệ';
+                  return null;
+                },
               ),
               SizedBox(
                 height: 20,
@@ -125,7 +135,12 @@ class _EmailCardState extends State<EmailCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_emailKey.currentState.validate()) {
+                        final _email = _emailKey.currentState.value;
+                        widget.onResetPressed(_email);
+                      }
+                    },
                     child: Text('Khôi phục'),
                   ),
                   RaisedButton(

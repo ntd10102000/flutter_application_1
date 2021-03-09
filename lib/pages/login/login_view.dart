@@ -49,6 +49,9 @@ class _LoginViewState extends State<LoginView> {
                                     onLoginPressed: (email, password) {
                                       print('$email, $password');
                                     },
+                                    onResetPressed: (email) {
+                                      print('$email');
+                                    },
 
                                     /// yêu cầu bổ sung onResetPressed và in ra email hợp lệ tương tự đối với onLogin
                                   )
