@@ -9,10 +9,12 @@ import 'photo.dart';
 class PhotoDetailView extends StatefulWidget {
   final String id;
   final String url;
+  final String title;
   const PhotoDetailView({
     Key? key,
     required this.id,
     required this.url,
+    required this.title,
   }) : super(key: key);
   @override
   _PhotoDetailViewState createState() => _PhotoDetailViewState();
@@ -66,6 +68,7 @@ class _PhotoDetailViewState extends State<PhotoDetailView> {
               fit: BoxFit.cover,
             ),
           ),
+          Text('${widget.title}'),
           Wrap(
             children: tags.map((e) {
               return TextButton(

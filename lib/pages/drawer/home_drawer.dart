@@ -11,10 +11,10 @@ class HomeDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          Container(
-            height: 200,
-            color: Theme.of(context).primaryColor,
-            child: Text('${user?.uid}'),
+          UserAccountsDrawerHeader(
+            currentAccountPicture: CircleAvatar(),
+            accountName: Text(''),
+            accountEmail: Text('${user?.email}'),
           ),
           ListTile(
             leading: Icon(Icons.person),

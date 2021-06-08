@@ -169,6 +169,7 @@ class _PhotoBrowserViewState extends State<PhotoBrowserView> {
                               builder: (_) => PhotoDetailView(
                                     id: e.id,
                                     url: e.getUrl('c'),
+                                    title: e.title,
                                   )));
                         },
                       );
