@@ -39,6 +39,21 @@ samples, guidance on mobile development, and a full API reference.
 ![194734626_2239828566148136_6554330748387916513_n](https://user-images.githubusercontent.com/52647821/121268919-11699780-c8e9-11eb-8dd8-9a808e1a7324.png)
 
 
+## Use case
+
+Uc overview
+
+![usecase](https://user-images.githubusercontent.com/52647821/121274260-55ae6500-c8f4-11eb-86d4-2e29b0d9c490.PNG)
+
+Activity login
+
+![Login](https://user-images.githubusercontent.com/52647821/121274343-82627c80-c8f4-11eb-977a-23e15c517465.PNG)
+
+Activity home search
+
+![Search](https://user-images.githubusercontent.com/52647821/121274381-93ab8900-c8f4-11eb-9cdf-0d30d6f27305.PNG)
+
+
 ## Getting Started
 
 1: Call `WidgetsFlutterBinding.ensureInitialized();` in main() before calling `runApp()`:
